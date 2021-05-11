@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../configs/login.service';
-import { LoginModel } from '../../models/login-enum.model';
+import { LoginModel } from '../../models/login-model.model';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { StateService } from '../../configs/state.service';
 
@@ -12,7 +12,10 @@ import { StateService } from '../../configs/state.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginObj = LoginModel;
+  loginObj: LoginModel = {
+    username: 'test',
+    password: 'test'
+  };
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 

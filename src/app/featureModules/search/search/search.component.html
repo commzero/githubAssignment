@@ -8,7 +8,7 @@
               <mat-label>Search...</mat-label>
               <input id="search" type="text" pattern="^[a-zA-Z0-9]+$" #searchInput (keyup)="triggerSearchAction()"
                 [(ngModel)]="searchValue" matInput type="text">
-              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchValue = ''">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
