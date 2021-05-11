@@ -1,0 +1,46 @@
+<section id="home-section">
+  <div class="container">
+    <div class="padding-modify">
+      <mat-card>
+        <div class="row">
+          <div class="col-md-9 col-sm-12 text-center">
+            <mat-form-field class="search-input">
+              <mat-label>Search...</mat-label>
+              <input id="search" type="text" pattern="^[a-zA-Z0-9]+$" #searchInput (keyup)="triggerSearchAction()"
+                [(ngModel)]="searchValue" matInput type="text">
+              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 col-sm-12 text-center">
+            <mat-form-field>
+              <mat-label>Search Type</mat-label>
+              <mat-select (selectionChange)="onSelectType()" [(ngModel)]="selectedValue">
+                <mat-option *ngFor="let type of searchTypes" [value]="type.value">
+                  {{ type.key }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div *ngIf="errorHappened" class="col-md-12 text-center alert alert-danger" role="alert">
+            <p>{{ errorMessage }}</p>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card *ngIf="showCard" class="results-card">
+        <div *ngIf="isSearching" class="text-center col-md-12">
+          <mat-spinner class="spinner-comp"></mat-spinner>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <h5 class="text-primary"><strong>{{ searchResults.length }} RESULTS</strong></h5>
+            </div>
+            <app-search-results [type]="selectedValue" [results]="searchResults"></app-search-results>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</section>

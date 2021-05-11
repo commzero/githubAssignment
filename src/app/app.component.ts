@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from './core/configs/state.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'github-assignment';
+
+  hide: string = '';
+
+  constructor(
+    private state: StateService
+  ) {
+    this.getCompName();
+  }
+
+  getCompName() {
+    this.state.getCondition().subscribe(hideCondition => {
+      this.hide = hideCondition;
+    });
+  }
+
 }
