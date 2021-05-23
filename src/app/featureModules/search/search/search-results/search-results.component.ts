@@ -22,6 +22,9 @@ export class SearchResultsComponent implements OnChanges {
 
   onLoadMoreData() {
     this.dataSize += 9;
+    if (this.dataSize > this.results.length) {
+      this.dataSize = this.results.length;
+    }
   }
 
   onVisitLink(url) {

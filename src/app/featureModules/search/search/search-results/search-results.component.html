@@ -17,5 +17,5 @@
   </div>
 </div>
 <div class="col-md-12 text-center">
-  <button class="load-more-button" (click)="onLoadMoreData()" mat-stroked-button color="primary">Load More</button>
+  <button [disabled]="dataSize == results.length" class="load-more-button" (click)="onLoadMoreData()" mat-stroked-button color="primary">MORE</button>
 </div>
